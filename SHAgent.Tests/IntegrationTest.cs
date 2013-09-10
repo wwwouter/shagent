@@ -27,7 +27,7 @@ namespace SHAgent.Tests
             _logger = LogManager.GetLogger(typeof (IntegrationTest));
         }
 
-        [TestMethod]
+        [TestMethod, Ignore]
         public void StartStopServer()
         {
             //StartServer();
