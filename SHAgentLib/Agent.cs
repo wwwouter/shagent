@@ -56,7 +56,7 @@ namespace SHAgent
         {
             _logger.Debug("Accepting socket");
 
-            var socket = listener.AcceptSocket();
+            Socket socket = listener.AcceptSocket();
 
             if (_configurationManager.SourceAddressCheckEnabled)
                 ValidateSourceAddress(socket);
@@ -102,8 +102,7 @@ namespace SHAgent
 
             _logger.Debug("Cleanup socket");
 
-            stream.Close();
-            socket.Close();
+            socket.Disconnect(true);
 
             AcceptSocket();
         }

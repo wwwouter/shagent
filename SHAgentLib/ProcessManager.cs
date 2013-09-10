@@ -39,9 +39,11 @@ namespace SHAgent
         {
             _logger.Debug("Checking if process is running");
 
-            _logger.Debug(string.Format("Proces is currently {0}running", _process.HasExited ? "not " : ""));
+            bool isRunning = _process != null && !_process.HasExited;
 
-            return _process.HasExited;
+            _logger.Debug(string.Format("Proces is currently {0}running", isRunning ? "not " : ""));
+
+            return isRunning;
         }
 
         public string GetProcessOutput()
