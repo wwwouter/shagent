@@ -1,4 +1,6 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NSubstitute;
 
 namespace SHAgent.Tests
@@ -24,7 +26,7 @@ namespace SHAgent.Tests
     }
 
     [TestClass]
-    public class GivenStartCommandWithCorrectParametersAndProcessRunning
+    public class GivenStartCommandWithProcessRunning
     {
         [TestMethod]
         public void ShouldNotStartProcess()
@@ -39,8 +41,14 @@ namespace SHAgent.Tests
 
             CommandHandler commandHandler = new CommandHandler(processManager, shConfigManager, Substitute.For<IMessenger>());
 
-            commandHandler.ExecuteCommand(Action.Parse("START;username;password", shConfigManager));
-
+            try
+            {
+                commandHandler.ExecuteCommand(Action.Parse("START;username;password", shConfigManager));
+            }
+            catch (Exception e)
+            {
+                e.Message.Should().Be("Process is allready running.");
+            }
             processManager.DidNotReceive().StartProcess(Arg.Any<Action>());
         }
     }

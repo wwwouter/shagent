@@ -30,7 +30,7 @@ namespace SHAgent.Tests
         {
             StartServer();
 
-            Thread.Sleep(10000);
+            Thread.Sleep(1000);
 
             StopServer();
         }

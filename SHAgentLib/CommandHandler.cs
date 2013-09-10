@@ -42,7 +42,7 @@ namespace SHAgent
             _logger.Debug("Executing start command");
 
             if (_processManager.IsProcessRunning(action))
-                throw new Exception("process is allready running");
+                throw new Exception("Process is allready running.");
 
             _processManager.StartProcess(action);
             _messenger.SendMessage("STARTED");

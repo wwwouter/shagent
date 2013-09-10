@@ -1,6 +1,4 @@
-﻿using System;
-using System.Diagnostics;
-using System.Linq;
+﻿using System.Diagnostics;
 using System.Text;
 using log4net;
 
@@ -41,15 +39,9 @@ namespace SHAgent
         {
             _logger.Debug("Checking if process is running");
 
-            string command = RemovePathAndExtension(action.Command);
+            _logger.Debug(string.Format("Proces is currently {0}running", _process.HasExited ? "not " : ""));
 
-            Process process = Process.GetProcesses().FirstOrDefault(pp => pp.ProcessName.StartsWith(command, StringComparison.InvariantCultureIgnoreCase));
-
-            bool isProcessRunning = process != null;
-
-            _logger.Debug(string.Format("Proces with processname {0} is currently {1}running", command, !isProcessRunning ? "not " : ""));
-
-            return isProcessRunning;
+            return _process.HasExited;
         }
 
         public string GetProcessOutput()
@@ -62,13 +54,6 @@ namespace SHAgent
             }
 
             return processOutput.ToString();
-        }
-
-        private string RemovePathAndExtension(string command)
-        {
-            var result = command.Substring(_configurationManager.Command.LastIndexOf(@"\") + 1);
-
-            return result.Substring(0, result.LastIndexOf("."));
         }
     }
 }
