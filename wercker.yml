@@ -1,4 +1,4 @@
-box: ami-e15d1588
+box: ami-755e161c
 box-type: ami
 ami-user: Administrator
 build:
