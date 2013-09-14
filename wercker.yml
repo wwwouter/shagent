@@ -1,0 +1,11 @@
+box: ami-11703e78
+box-type: ami
+ami-user: Administrator
+build:
+  steps:
+    - script:
+        name: List source dir
+        code: |
+          cd $WERCKER_SOURCE_DIR
+          ls -al
+          /cygdrive/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe SimpleApp.sln
