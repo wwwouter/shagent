@@ -8,4 +8,4 @@ build:
         code: |
           cd $WERCKER_SOURCE_DIR
           ls -al
-          /cygdrive/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe SimpleApp.sln
+          /cygdrive/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe SHAgent.sln
