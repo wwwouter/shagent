@@ -1,6 +1,6 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual Studio 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHAgent", "SHAgent\SHAgent.csproj", "{EC6A6317-D016-454B-956F-F48715866903}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SHAgent.Tests", "SHAgent.Tests\SHAgent.Tests.csproj", "{2738A7C6-F663-4188-97FB-BD5159810DFE}"
@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{87EA1E9F-6F2A-4C12-BFB2-C48721204F81}"
 	ProjectSection(SolutionItems) = preProject
 		Local.testsettings = Local.testsettings
+		Readme.txt = Readme.txt
 		SHAgent.vsmdi = SHAgent.vsmdi
 		TraceAndTestImpact.testsettings = TraceAndTestImpact.testsettings
 	EndProjectSection
