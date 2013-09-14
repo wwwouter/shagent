@@ -1,11 +1,21 @@
-box: ami-11703e78
+box: ami-e15d1588
 box-type: ami
 ami-user: Administrator
 build:
   steps:
     - script:
-        name: List source dir
+        name: Nuget
         code: |
-          cd $WERCKER_SOURCE_DIR
-          ls -al
-          /cygdrive/c/Windows/Microsoft.NET/Framework64/v4.0.30319/MSBuild.exe SHAgent.sln
+          /cygdrive/c/Program\ Files/nuget.exe install SHAgentLib/packages.config -OutputDirectory packages
+          /cygdrive/c/Program\ Files/nuget.exe install SHAgent/packages.config -OutputDirectory packages
+          /cygdrive/c/Program\ Files/nuget.exe install SHAgentService/packages.config -OutputDirectory packages
+          /cygdrive/c/Program\ Files/nuget.exe install SHAgent.Tests/packages.config -OutputDirectory packages
+    - script:
+        name: MSBuild
+        code: |
+          /cygdrive/c/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+    - script:
+        name: MSTest
+        code: |
+          /cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 11.0/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe  SHAgent.Tests/bin/Debug/SHAgent.Tests.dll
+          
