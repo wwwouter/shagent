@@ -1,0 +1,11 @@
+language: csharp
+csharp:
+        - dotNet30
+build_environment: win2012
+before_install: msbuild SHAgent.sln
+notifications:
+  email:
+    recipients:
+      - ivo@igsoft.nl
+    on_success: always
+    on_failure: always
