@@ -1,13 +1,14 @@
 box: wercker-labs/windows
 build:
   steps:
-    - script:
-        name: Nuget
-        code: |
-          /cygdrive/c/Program\ Files/nuget.exe install SHAgentLib/packages.config -OutputDirectory packages
-          /cygdrive/c/Program\ Files/nuget.exe install SHAgent/packages.config -OutputDirectory packages
-          /cygdrive/c/Program\ Files/nuget.exe install SHAgentService/packages.config -OutputDirectory packages
-          /cygdrive/c/Program\ Files/nuget.exe install SHAgent.Tests/packages.config -OutputDirectory packages
+    - wercker-labs/nuget
+    # - script:
+    #     name: Nuget
+    #     code: |
+    #       /cygdrive/c/Program\ Files/nuget.exe install SHAgentLib/packages.config -OutputDirectory packages
+    #       /cygdrive/c/Program\ Files/nuget.exe install SHAgent/packages.config -OutputDirectory packages
+    #       /cygdrive/c/Program\ Files/nuget.exe install SHAgentService/packages.config -OutputDirectory packages
+    #       /cygdrive/c/Program\ Files/nuget.exe install SHAgent.Tests/packages.config -OutputDirectory packages
     - wercker-labs/msbuild
     # - script:
     #     name: MSBuild
