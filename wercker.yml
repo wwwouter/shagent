@@ -14,8 +14,9 @@ build:
     #     name: MSBuild
     #     code: |
     #       /cygdrive/c/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
-    - script:
-        name: MSTest
-        code: |
-          /cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 11.0/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe  SHAgent.Tests/bin/Debug/SHAgent.Tests.dll
+    - wercker-labs/dotnet-test
+    # - script:
+    #     name: MSTest
+    #     code: |
+    #       /cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 11.0/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe  SHAgent.Tests/bin/Debug/SHAgent.Tests.dll
           
