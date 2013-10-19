@@ -1,6 +1,4 @@
-box: ami-b95e16d0
-box-type: ami
-ami-user: Administrator
+box: wercker-labs/windows
 build:
   steps:
     - script:
@@ -10,10 +8,11 @@ build:
           /cygdrive/c/Program\ Files/nuget.exe install SHAgent/packages.config -OutputDirectory packages
           /cygdrive/c/Program\ Files/nuget.exe install SHAgentService/packages.config -OutputDirectory packages
           /cygdrive/c/Program\ Files/nuget.exe install SHAgent.Tests/packages.config -OutputDirectory packages
-    - script:
-        name: MSBuild
-        code: |
-          /cygdrive/c/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
+    - wercker-labs/msbuild
+    # - script:
+    #     name: MSBuild
+    #     code: |
+    #       /cygdrive/c/Windows/Microsoft.NET/Framework/v4.0.30319/MSBuild.exe
     - script:
         name: MSTest
         code: |
