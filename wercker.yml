@@ -20,3 +20,4 @@ build:
     #     code: |
     #       /cygdrive/c/Program\ Files\ \(x86\)/Microsoft\ Visual\ Studio\ 11.0/Common7/IDE/CommonExtensions/Microsoft/TestWindow/vstest.console.exe  SHAgent.Tests/bin/Debug/SHAgent.Tests.dll
           
+
